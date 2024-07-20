@@ -4,8 +4,6 @@ const scoreboard = document.getElementById('scoreboard');
 const scoreElement = document.getElementById('score');
 const highscoreElement = document.getElementById('highscore');
 const gameOverElement = document.getElementById('gameOver');
-const restartButton = document.getElementById('restart');
-const jumpButton = document.getElementById('jumpButton');
 
 function resizeCanvas() {
     canvas.width = window.innerWidth > 480 ? 480 : window.innerWidth;
@@ -51,7 +49,7 @@ function drawClouds() {
 }
 
 function drawBird() {
-    ctx.fillStyle = '#FFD701'; // Cor do pássaro
+    ctx.fillStyle = '#FFD700'; // Cor do pássaro
     ctx.beginPath();
     ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
     ctx.fill();
@@ -190,8 +188,7 @@ function handleJump() {
     }
 }
 
-document.addEventListener('keydown', handleJump);
-jumpButton.addEventListener('touchstart', handleJump);
+canvas.addEventListener('click', handleJump);
 
 restartButton.addEventListener('click', restartGame);
 
